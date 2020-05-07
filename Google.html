@@ -1,4 +1,21 @@
-<?php 
-echo file_get_contents("https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,
-+Mountain+View,+CA&key=AIzaSyBxgZiA7f5ZMMqxUWYovackjjFh-ywF6Aw");
-?>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ggeocoding An address </title>
+</head>
+<body>
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript">
+  $.ajax({
+    url:"https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyANgcBH-uAhVpnstnGU3QHWuQdvn4yE468",
+    type:"GET",
+    success:function(date){
+      console.log(date);
+    }
+
+  })
+</script>
+</html>
