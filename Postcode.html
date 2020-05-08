@@ -38,7 +38,7 @@
             url:"https://maps.googleapis.com/maps/api/geocode/json?address="+ encodeURIComponent($("#address").val())+"&key=AIzaSyAMMOc2P1L0ZJd3c8NGRFvSsH-toFISvEo",
             type:"GET",
             success:function(data){
-             if(date["status"]!="OK"){
+             if(data["status"]!="OK"){
               $("#message").html('<div class="alert alert-danger" role="alert"> There was en error finding the Postcode. Please try again</div>');
              }else{
                 $.each(data['results'][0]['address_components'],function(key,value){
