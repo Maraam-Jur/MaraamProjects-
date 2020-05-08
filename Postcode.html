@@ -14,6 +14,7 @@
     <div class="container">
       <h1> PostCode Finder </h1>
       <p> Enter a partial address to get the postcode </p>
+      <div id="message"></div>
       <form>
   <div class="form-group">
     <label for="address">Address</label>
@@ -39,7 +40,7 @@
             success:function(data){
                 $.each(data['results'][0]['address_components'],function(key,value){
                     if(value["types"][0]=="postal_code"){
-                       $("#message").html('<div class="alert alert-info" role="alert" id="message"> The PostCode is' + value['long_name'] + '</div>');
+                       $("#message").html('<div class="alert alert-info" role="alert"> The PostCode is' + value['long_name'] + '</div>');
      
 
              }
