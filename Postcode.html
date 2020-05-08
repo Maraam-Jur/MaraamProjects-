@@ -19,7 +19,7 @@
     <label for="address">Address</label>
     <input type="email" class="form-control" id="address" placeholder="Enter Partial  Address">
   </div>
-  <button type="submit" class="btn btn-primary" id="submit">Submit</button>
+  <button type="submit" class="btn btn-primary" id="clicker">Submit</button>
 </form>
     </div>
     
@@ -31,12 +31,12 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
     <script type="text/javascript">
-    $("#submit").click(function(){
-      $.ajax({
-          url:"https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyAMMOc2P1L0ZJd3c8NGRFvSsH-toFISvEo",
-          type:"GET",
-          success:function(data){
-           $.each(data['results'][0]['address_components'],function(key,value){
+    $("#clicker").click(function(){
+        $.ajax({
+            url:"https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyAMMOc2P1L0ZJd3c8NGRFvSsH-toFISvEo",
+            type:"GET",
+            success:function(data){
+            $.each(data['results'][0]['address_components'],function(key,value){
              if(value["types"][0]=="postal_code"){
               alert(value["long_name"]);
              }
@@ -44,7 +44,7 @@
            })
           }
         })
-      })
+      });
       
     </script>
   </body>
