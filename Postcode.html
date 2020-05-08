@@ -31,9 +31,10 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
     <script type="text/javascript">
-    $("#clicker").click(function(){
+    $("#clicker").click(function(e){
+       e.preventDefault();
         $.ajax({
-            url:"https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyAMMOc2P1L0ZJd3c8NGRFvSsH-toFISvEo",
+            url:"https://maps.googleapis.com/maps/api/geocode/json?address="+ encodeURIComponent($("#address").val())+"&key=AIzaSyAMMOc2P1L0ZJd3c8NGRFvSsH-toFISvEo",
             type:"GET",
             success:function(data){
                 $.each(data['results'][0]['address_components'],function(key,value){
