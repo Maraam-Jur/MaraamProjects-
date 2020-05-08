@@ -38,15 +38,20 @@
             url:"https://maps.googleapis.com/maps/api/geocode/json?address="+ encodeURIComponent($("#address").val())+"&key=AIzaSyAMMOc2P1L0ZJd3c8NGRFvSsH-toFISvEo",
             type:"GET",
             success:function(data){
-              console.log(data);
+             if(date["status"]!="OK"){
+              $("#message").html('<div class="alert alert-danger" role="alert"> There was en error finding the Postcode. Please try again</div>');
+             }else{
                 $.each(data['results'][0]['address_components'],function(key,value){
                     if(value["types"][0]=="postal_code"){
                        $("#message").html('<div class="alert alert-info" role="alert"> The PostCode is ' + value['long_name'] + '</div>');
+             
+             }
+             
      
 
-             }
+             })
 
-           })
+           }
           }
         })
       })
