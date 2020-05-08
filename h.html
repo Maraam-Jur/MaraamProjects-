@@ -13,7 +13,11 @@
 		type:"GET",
 		success:function(data){
 	        $.each(data['results'][0]['address_components'],function(key,value){
-	        	alert(value["types"][0]);
+	        	if(value["types"][0]=="country"){
+	        	      alert(value["short_name"]);
+	        	}
+
+
 	        })
 		}
 
