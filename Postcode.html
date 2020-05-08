@@ -39,7 +39,9 @@
             success:function(data){
                 $.each(data['results'][0]['address_components'],function(key,value){
                     if(value["types"][0]=="postal_code"){
-                       alert(value["long_name"]);
+                       $("#message").html('<div class="alert alert-info" role="alert" id="message"> The PostCode is' + value['long_name'] + '</div>');
+     
+
              }
 
            })
