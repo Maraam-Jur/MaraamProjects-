@@ -13,7 +13,7 @@
 		type:"GET",
 		success:function(data){
 	        $.each(data['results'][0]['address_components'],function(key,value){
-	        	alert(key);
+	        	alert(value["types"][0]);
 	        })
 		}
 
